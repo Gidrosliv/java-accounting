@@ -6,19 +6,19 @@ public class MonthlyData {
     /**
      * Поле имя
      */
-    String name;
+    private String name;
     /**
      * Поле доход/расход
      */
-    boolean isExpense;
+    private boolean isExpense;
     /**
      * Поле количество
      */
-    int qnty;
+    private int qnty;
     /**
      * Поле цены
      */
-    int price;
+    private int price;
 
 
     /**
@@ -34,6 +34,42 @@ public class MonthlyData {
         this.isExpense = isExpense;
         this.qnty = qnty;
         this.price = price;
+    }
+
+    /**
+     * Метод возвращает поле name.
+     *
+     * @return Метод возвращает поле name, в формате String.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Метод возвращает поле isExpense(трата/доход).
+     *
+     * @return Метод возвращает поле isExpense, в формате boolean.
+     */
+    public boolean isExpense() {
+        return isExpense;
+    }
+
+    /**
+     * Метод возвращает поле  Qnty(количество).
+     *
+     * @return Метод возвращает поле Qnty, в формате int.
+     */
+    public int getQnty() {
+        return qnty;
+    }
+
+    /**
+     * Метод возвращает поле price(цена).
+     *
+     * @return Метод возвращает поле price, в формате int.
+     */
+    public int getPrice() {
+        return price;
     }
 
 }

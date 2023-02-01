@@ -6,15 +6,15 @@ public class YearlyData {
     /**
      * Поле месяц.
      */
-    int month;
+    private int month;
     /**
      * Поле сумма.
      */
-    int amount;
+    private int amount;
     /**
      * Поле доход/расход.
      */
-    boolean isExpense;
+    private boolean isExpense;
 
 
     /**
@@ -29,4 +29,32 @@ public class YearlyData {
         this.amount = amount;
         this.isExpense = isExpense;
     }
+
+    /**
+     * Метод возвращает поле  Amount(трата).
+     *
+     * @return Метод возвращает поле Amount, в формате int.
+     */
+    public int getAmount() {
+        return amount;
+    }
+
+    /**
+     * Метод возвращает поле isExpense(трата/доход).
+     *
+     * @return Метод возвращает поле isExpense, в формате boolean.
+     */
+    public boolean isExpense() {
+        return isExpense;
+    }
+
+    /**
+     * Метод возвращает поле month(месяц).
+     *
+     * @return Метод возвращает поле month, в формате int.
+     */
+    public int getMonth() {
+        return month;
+    }
+
 }

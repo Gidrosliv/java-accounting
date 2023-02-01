@@ -7,9 +7,13 @@
 /dataSources/
 /dataSources.local.xml
 
-/target/
-/test/
-/.idea/
+/target/classes
+/target/generated-sources
+/target/maven-archiver
+/target/maven-status
+/target/site
+/test/*
+/.idea/*
 /accounting.iml
 /java-sprint1-hw.iml
 /README.md

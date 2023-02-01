@@ -9,11 +9,11 @@ public class Engine {
     /**
      * monthReports хранит информацию о считанных отчетах.
      */
-    HashMap<Integer, ArrayList<MonthlyData>> monthReports = new HashMap<>();
+    private HashMap<Integer, ArrayList<MonthlyData>> monthReports = new HashMap<>();
     /**
      * yearReports хранит информацию о  годовых отчетах.
      */
-    HashMap<Integer, ArrayList<YearlyData>> yearReports = new HashMap<>();
+    private HashMap<Integer, ArrayList<YearlyData>> yearReports = new HashMap<>();
 
 
     /**
@@ -83,8 +83,8 @@ public class Engine {
 
         for (ArrayList<YearlyData> report : yearReports.values()) {
             for (YearlyData parametrs : report) {
-                if (parametrs.isExpense) {
-                    sumYearExp = sumYearExp + parametrs.amount;
+                if (parametrs.isExpense()) {
+                    sumYearExp = sumYearExp + parametrs.getAmount();
                 }
             }
         }
@@ -103,8 +103,8 @@ public class Engine {
             int monthIncome;
 
             for (YearlyData parametrs : report) {
-                if (!parametrs.isExpense) {
-                    monthIncome = parametrs.amount;
+                if (!parametrs.isExpense()) {
+                    monthIncome = parametrs.getAmount();
                     yearInc = yearInc + monthIncome;
                 }
             }
@@ -125,8 +125,8 @@ public class Engine {
             int sumExp = 0;
             int sum;
             for (MonthlyData param : report) {
-                if (param.isExpense) {
-                    sum = param.qnty * param.price;
+                if (param.isExpense()) {
+                    sum = param.getQnty() * param.getPrice();
                     sumExp = sum + sumExp;
                 }
             }
@@ -147,8 +147,8 @@ public class Engine {
             int sumInc = 0;
             int sum;
             for (MonthlyData param : report) {
-                if (!param.isExpense) {
-                    sum = param.qnty * param.price;
+                if (!param.isExpense()) {
+                    sum = param.getQnty() * param.getPrice();
                     sumInc = sum + sumInc;
                 }
             }
@@ -176,18 +176,18 @@ public class Engine {
             String maxSpendName = null;
 
             for (MonthlyData x : parametr) {
-                if (x.isExpense) {
-                    temp = x.qnty * x.price;
+                if (x.isExpense()) {
+                    temp = x.getQnty() * x.getPrice();
                     if (temp > maxVal) {
                         maxVal = temp;
-                        maxName = x.name;
+                        maxName = x.getName();
                     }
                 } else {
-                    maxValueSpendSum = x.qnty * x.price;
-                    maxSpendName = x.name;
+                    maxValueSpendSum = x.getQnty() * x.getPrice();
+                    maxSpendName = x.getName();
                     if (maxValueSpendSum > maxSpend) {
                         maxSpend = maxValueSpendSum;
-                        maxSpendName = x.name;
+                        maxSpendName = x.getName();
                     }
                 }
             }
@@ -247,10 +247,10 @@ public class Engine {
 
         for (ArrayList<YearlyData> yearlyData : yearReports.values()) {
             for (YearlyData y : yearlyData) {
-                if (y.isExpense) {
-                    profitPerMonth.put(y.month, y.amount);
+                if (y.isExpense()) {
+                    profitPerMonth.put(y.getMonth(), y.getAmount());
                 } else {
-                    expPerMonth.put(y.month, y.amount);
+                    expPerMonth.put(y.getMonth(), y.getAmount());
                 }
             }
         }
