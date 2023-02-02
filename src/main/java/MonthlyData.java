@@ -24,10 +24,10 @@ public class MonthlyData {
     /**
      * Конструктор - создание нового объекта с определенными значениями трат.
      *
-     * @param name      - производитель.
-     * @param isExpense - трата/расход.
-     * @param qnty      - количество.
-     * @param price     - цена.
+     * @param name      производитель.
+     * @param isExpense трата/расход.
+     * @param qnty      количество.
+     * @param price     цена.
      */
     public MonthlyData(String name, boolean isExpense, int qnty, int price) {
         this.name = name;

@@ -20,9 +20,9 @@ public class YearlyData {
     /**
      * Конструктор - создание нового объекта с определенными значениями доходов/расходов за конкретный месяц в году.
      *
-     * @param month     - месяц.
-     * @param isExpense - трата/ расход.
-     * @param amount    - сумма трат/доходов.
+     * @param month     месяц.
+     * @param isExpense трата/ расход.
+     * @param amount    сумма трат/доходов.
      */
     public YearlyData(int month, int amount, boolean isExpense) {
         this.month = month;

@@ -10,7 +10,7 @@ public class FileReader {
     /**
      * Метод считывающий данные из файла.
      *
-     * @param path - путь к папке с файслами.
+     * @param path путь к папке с файслами.
      * @return возвращаем строку из считанных данных.
      */
     static String readFileContentsOrNull(String path) {
@@ -27,7 +27,7 @@ public class FileReader {
      * Метод разбивает моно-строку с полученными значения в строковый массив.
      * Присваиваем данные экземпляру класса MonthlyData.
      *
-     * @param someRow - строка, которую необходимо разбить по делиметеру.
+     * @param someRow строка, которую необходимо разбить по делиметеру.
      * @return массив с данными, за конкретный месяц.
      */
     public static ArrayList<MonthlyData> splitMonthRow(String someRow) {
@@ -49,7 +49,7 @@ public class FileReader {
      * Метод разбивает моно-строку с полученными значения в строковый массив.
      * Присваиваем данные экземпляру класса YearlyData.
      *
-     * @param someRow - строка, которую необходимо разбить по делиметеру.
+     * @param someRow строка, которую необходимо разбить по делиметеру.
      * @return массив с данными, за конкретный год.
      */
     public static ArrayList<YearlyData> splitYearRow(String someRow) {

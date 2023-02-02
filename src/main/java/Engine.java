@@ -208,7 +208,7 @@ public class Engine {
     /**
      * Метод для конвертации цифры в название месяца.
      *
-     * @param num - целое число, которое необходимо соотнести с текстовым значением месяца.
+     * @param num целое число, которое необходимо соотнести с текстовым значением месяца.
      * @return Возвращает название месяца в формате String.
      */
     public String getNameMonth(int num) {
@@ -272,7 +272,7 @@ public class Engine {
     /**
      * Поиск среднего значения в категории прибылл.
      *
-     * @param forYear - массив данных, включающий прибыль за месяц .
+     * @param forYear массив данных, включающий прибыль за месяц .
      * @return Возвращает среднее значение прибыли за месяц.
      */
     public int getAverageIncome(HashMap<Integer, Integer> forYear) {
@@ -287,7 +287,7 @@ public class Engine {
     /**
      * Поиск среднего значения в категории траты.
      *
-     * @param forYear - массив данных, включающий траты за месяц .
+     * @param forYear массив данных, включающий траты за месяц .
      * @return Возвращает среднее значение трат за месяц.
      */
     private int getAverageExpense(HashMap<Integer, Integer> forYear) {
