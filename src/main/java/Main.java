@@ -7,6 +7,12 @@ import java.util.Scanner;
  * @version 1.2
  */
 public class Main {
+
+    /**
+     * Метод main. Классически главный метод программы.
+     * Разворачивает пользовательское меню и запускает основные операции.
+     *
+     */
     public static void main(String[] args) {
         System.out.println("Добро пожаловать в бухгалтерское приложение!");
         System.out.println("Введите команду, чтобы продолжить");

@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #629755; font-style: italic;}
+.s3 { color: #629755; font-weight: bold; font-style: italic;}
+.s4 { color: #6a8759;}
+.s5 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+
+<span class="s2">/**</span>
+ <span class="s2">* Главный класс. Точка входа в программу. Разворачивает поьзовательское меню.</span>
+ <span class="s2">*</span>
+ <span class="s2">* </span><span class="s3">@author </span><span class="s2">Denis Shurakov</span>
+ <span class="s2">* </span><span class="s3">@version </span><span class="s2">1.2</span>
+ <span class="s2">*/</span>
+<span class="s0">public class </span><span class="s1">Main {</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;Добро пожаловать в бухгалтерское приложение!&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;Введите команду, чтобы продолжить&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s0">int </span><span class="s1">command</span><span class="s0">;</span>
+        <span class="s1">Engine engine = </span><span class="s0">new </span><span class="s1">Engine()</span><span class="s0">;</span>
+        <span class="s1">Scanner scanner = </span><span class="s0">new </span><span class="s1">Scanner(System.in)</span><span class="s0">;</span>
+
+        <span class="s0">while </span><span class="s1">(</span><span class="s0">true</span><span class="s1">) {</span>
+            <span class="s1">printMenu()</span><span class="s0">;</span>
+            <span class="s1">command = scanner.nextInt()</span><span class="s0">;</span>
+
+            <span class="s0">switch </span><span class="s1">(command) {</span>
+                <span class="s0">case </span><span class="s1">(</span><span class="s5">1</span><span class="s1">):</span>
+                    <span class="s1">engine.inputMonthReport()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s1">(</span><span class="s5">2</span><span class="s1">):</span>
+                    <span class="s1">engine.inputYearReport()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s1">(</span><span class="s5">3</span><span class="s1">):</span>
+                    <span class="s1">engine.compare()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s1">(</span><span class="s5">4</span><span class="s1">):</span>
+                    <span class="s1">engine.getMonthReport()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s1">(</span><span class="s5">5</span><span class="s1">):</span>
+                    <span class="s1">engine.getYearReport()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s1">(</span><span class="s5">0</span><span class="s1">):</span>
+                    <span class="s1">System.out.println(</span><span class="s4">&quot;До новых встреч&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">scanner.close()</span><span class="s0">;</span>
+                    <span class="s0">return;</span>
+                <span class="s0">default</span><span class="s1">:</span>
+                    <span class="s1">System.out.println(</span><span class="s4">&quot;Такой команды не существует.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     <span class="s2">* Метод выводит главное меню на экран.</span>
+     <span class="s2">*/</span>
+    <span class="s0">private static void </span><span class="s1">printMenu() {</span>
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;Выберите действие &quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println()</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;1 - Считать все месячные отчёты&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;2 - Считать годовой отчёт&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;3 - Сверить отчёты&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;4 - Вывести информацию о всех месячных отчётах&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;5 - Вывести информацию о годовом отчёте&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;0 - Выход&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

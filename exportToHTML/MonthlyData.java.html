@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>MonthlyData.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #629755; font-style: italic;}
+.s1 { color: #77b767; font-style: italic;}
+.s2 { color: #a9b7c6;}
+.s3 { color: #cc7832;}
+.s4 { color: #629755; font-weight: bold; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MonthlyData.java</font>
+</center></td></tr></table>
+<pre><span class="s0">/**</span>
+ <span class="s0">* Класс хранит инфомрацию о конкретной трате, конкретного месяца.</span>
+ <span class="s0">* Свойства: </span><span class="s1">&lt;b&gt;</span><span class="s0">name</span><span class="s1">&lt;/b&gt;</span><span class="s0">,  </span><span class="s1">&lt;b&gt;</span><span class="s0">isExpense</span><span class="s1">&lt;/b&gt;</span><span class="s0">, </span><span class="s1">&lt;b&gt;</span><span class="s0">qnty</span><span class="s1">&lt;/b&gt;</span><span class="s0">,  </span><span class="s1">&lt;b&gt;</span><span class="s0">price</span><span class="s1">&lt;/b&gt;</span><span class="s0">.</span>
+ <span class="s0">*/</span>
+<span class="s3">public class </span><span class="s2">MonthlyData {</span>
+    <span class="s0">/**</span>
+     <span class="s0">* Поле имя</span>
+     <span class="s0">*/</span>
+    <span class="s3">private </span><span class="s2">String name</span><span class="s3">;</span>
+    <span class="s0">/**</span>
+     <span class="s0">* Поле доход/расход</span>
+     <span class="s0">*/</span>
+    <span class="s3">private boolean </span><span class="s2">isExpense</span><span class="s3">;</span>
+    <span class="s0">/**</span>
+     <span class="s0">* Поле количество</span>
+     <span class="s0">*/</span>
+    <span class="s3">private int </span><span class="s2">qnty</span><span class="s3">;</span>
+    <span class="s0">/**</span>
+     <span class="s0">* Поле цены</span>
+     <span class="s0">*/</span>
+    <span class="s3">private int </span><span class="s2">price</span><span class="s3">;</span>
+
+
+    <span class="s0">/**</span>
+     <span class="s0">* Конструктор - создание нового объекта с определенными значениями трат.</span>
+     <span class="s0">*</span>
+     <span class="s0">* </span><span class="s4">@param </span><span class="s0">name      - производитель.</span>
+     <span class="s0">* </span><span class="s4">@param </span><span class="s0">isExpense - трата/расход.</span>
+     <span class="s0">* </span><span class="s4">@param </span><span class="s0">qnty      - количество.</span>
+     <span class="s0">* </span><span class="s4">@param </span><span class="s0">price     - цена.</span>
+     <span class="s0">*/</span>
+    <span class="s3">public </span><span class="s2">MonthlyData(String name</span><span class="s3">, boolean </span><span class="s2">isExpense</span><span class="s3">, int </span><span class="s2">qnty</span><span class="s3">, int </span><span class="s2">price) {</span>
+        <span class="s3">this</span><span class="s2">.name = name</span><span class="s3">;</span>
+        <span class="s3">this</span><span class="s2">.isExpense = isExpense</span><span class="s3">;</span>
+        <span class="s3">this</span><span class="s2">.qnty = qnty</span><span class="s3">;</span>
+        <span class="s3">this</span><span class="s2">.price = price</span><span class="s3">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">/**</span>
+     <span class="s0">* Метод возвращает поле name.</span>
+     <span class="s0">*</span>
+     <span class="s0">* </span><span class="s4">@return </span><span class="s0">Метод возвращает поле name, в формате String.</span>
+     <span class="s0">*/</span>
+    <span class="s3">public </span><span class="s2">String getName() {</span>
+        <span class="s3">return </span><span class="s2">name</span><span class="s3">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">/**</span>
+     <span class="s0">* Метод возвращает поле isExpense(трата/доход).</span>
+     <span class="s0">*</span>
+     <span class="s0">* </span><span class="s4">@return </span><span class="s0">Метод возвращает поле isExpense, в формате boolean.</span>
+     <span class="s0">*/</span>
+    <span class="s3">public boolean </span><span class="s2">isExpense() {</span>
+        <span class="s3">return </span><span class="s2">isExpense</span><span class="s3">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">/**</span>
+     <span class="s0">* Метод возвращает поле  Qnty(количество).</span>
+     <span class="s0">*</span>
+     <span class="s0">* </span><span class="s4">@return </span><span class="s0">Метод возвращает поле Qnty, в формате int.</span>
+     <span class="s0">*/</span>
+    <span class="s3">public int </span><span class="s2">getQnty() {</span>
+        <span class="s3">return </span><span class="s2">qnty</span><span class="s3">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">/**</span>
+     <span class="s0">* Метод возвращает поле price(цена).</span>
+     <span class="s0">*</span>
+     <span class="s0">* </span><span class="s4">@return </span><span class="s0">Метод возвращает поле price, в формате int.</span>
+     <span class="s0">*/</span>
+    <span class="s3">public int </span><span class="s2">getPrice() {</span>
+        <span class="s3">return </span><span class="s2">price</span><span class="s3">;</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span></pre>
+</body>
+</html>

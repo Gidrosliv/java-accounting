@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>FileReader.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #629755; font-style: italic;}
+.s3 { color: #629755; font-weight: bold; font-style: italic;}
+.s4 { color: #6a8759;}
+.s5 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+FileReader.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.io.IOException</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.nio.file.Files</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.nio.file.Path</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span>
+
+<span class="s2">/**</span>
+ <span class="s2">* Класс считывающий данные из заданной папки.</span>
+ <span class="s2">*/</span>
+<span class="s0">public class </span><span class="s1">FileReader {</span>
+    <span class="s2">/**</span>
+     <span class="s2">* Метод считывающий данные из файла.</span>
+     <span class="s2">*</span>
+     <span class="s2">* </span><span class="s3">@param </span><span class="s2">path - путь к папке с файслами.</span>
+     <span class="s2">* </span><span class="s3">@return </span><span class="s2">возвращаем строку из считанных данных.</span>
+     <span class="s2">*/</span>
+    <span class="s0">static </span><span class="s1">String readFileContentsOrNull(String path) {</span>
+        <span class="s0">try </span><span class="s1">{</span>
+            <span class="s0">return </span><span class="s1">Files.readString(Path.of(path))</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(IOException e) {</span>
+            <span class="s1">System.out.println(</span><span class="s4">&quot;Невозможно прочитать файл с месячным отчётом.&quot; </span><span class="s1">+</span>
+                    <span class="s4">&quot; Возможно, файл не находится в нужной директории.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s0">return null;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s2">/**</span>
+     <span class="s2">* Метод разбивает моно-строку с полученными значения в строковый массив.</span>
+     <span class="s2">* Присваиваем данные экземпляру класса MonthlyData.</span>
+     <span class="s2">*</span>
+     <span class="s2">* </span><span class="s3">@param </span><span class="s2">someRow - строка, которую необходимо разбить по делиметеру.</span>
+     <span class="s2">* </span><span class="s3">@return </span><span class="s2">массив с данными, за конкретный месяц.</span>
+     <span class="s2">*/</span>
+    <span class="s0">public static </span><span class="s1">ArrayList&lt;MonthlyData&gt; splitMonthRow(String someRow) {</span>
+        <span class="s1">ArrayList&lt;MonthlyData&gt; monthReports = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
+        <span class="s1">String[] lines = someRow.split(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s5">1</span><span class="s0">; </span><span class="s1">i &lt; lines.length</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s1">String line1 = lines[i]</span><span class="s0">;</span>
+            <span class="s1">String[] lines2 = line1.split(</span><span class="s4">&quot;,&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">MonthlyData monthRep = </span><span class="s0">new </span><span class="s1">MonthlyData(lines2[</span><span class="s5">0</span><span class="s1">]</span><span class="s0">, </span><span class="s1">Boolean.parseBoolean(lines2[</span><span class="s5">1</span><span class="s1">])</span><span class="s0">, </span><span class="s1">Integer.parseInt(lines2[</span><span class="s5">3</span><span class="s1">])</span><span class="s0">,</span>
+                    <span class="s1">Integer.parseInt(lines2[</span><span class="s5">2</span><span class="s1">]))</span><span class="s0">;</span>
+            <span class="s1">monthReports.add(monthRep)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">monthReports</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+
+    <span class="s2">/**</span>
+     <span class="s2">* Метод разбивает моно-строку с полученными значения в строковый массив.</span>
+     <span class="s2">* Присваиваем данные экземпляру класса YearlyData.</span>
+     <span class="s2">*</span>
+     <span class="s2">* </span><span class="s3">@param </span><span class="s2">someRow - строка, которую необходимо разбить по делиметеру.</span>
+     <span class="s2">* </span><span class="s3">@return </span><span class="s2">массив с данными, за конкретный год.</span>
+     <span class="s2">*/</span>
+    <span class="s0">public static </span><span class="s1">ArrayList&lt;YearlyData&gt; splitYearRow(String someRow) {</span>
+        <span class="s1">ArrayList&lt;YearlyData&gt; yearReports = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
+        <span class="s1">String[] lines = someRow.split(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s5">1</span><span class="s0">; </span><span class="s1">i &lt; lines.length</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s1">String line1 = lines[i]</span><span class="s0">;</span>
+            <span class="s1">String[] lines2 = line1.split(</span><span class="s4">&quot;,&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">YearlyData yearRep = </span><span class="s0">new </span><span class="s1">YearlyData(Integer.parseInt(lines2[</span><span class="s5">0</span><span class="s1">])</span><span class="s0">, </span><span class="s1">Integer.parseInt(lines2[</span><span class="s5">1</span><span class="s1">])</span><span class="s0">,</span>
+                    <span class="s1">Boolean.parseBoolean(lines2[</span><span class="s5">2</span><span class="s1">]))</span><span class="s0">;</span>
+            <span class="s1">yearReports.add(yearRep)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">yearReports</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
