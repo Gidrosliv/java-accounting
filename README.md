@@ -30,6 +30,8 @@
 
 ### Как посмотреть документацию?
 
-1.Cкачиваем проект
-2.Переходим в папку exportToHTML 
-3.Запускаем файл index
+* Cкачиваем проект
+* Переходим в папку exportToHTML 
+* Запускаем файл index
+
+![This is an image](https://github.com/devShurakov/java-Accounting/blob/main/pic.png)
