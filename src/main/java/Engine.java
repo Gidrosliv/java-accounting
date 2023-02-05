@@ -6,6 +6,16 @@ import java.util.HashMap;
  * Свойства: <b>monthReports</b>,  <b>yearReports</b>.
  */
 public class Engine {
+    
+    private static Engine INSTANCE = new Engine();
+
+    private Engine() {
+    }
+
+    public static Engine getInstance() {
+        return INSTANCE;
+    }
+   
     /**
      * monthReports хранит информацию о считанных отчетах.
      */
