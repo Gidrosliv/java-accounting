@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Введите команду, чтобы продолжить");
 
         int command;
-        Engine engine = new Engine();
+        Engine engine = Engine.getInstance();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
